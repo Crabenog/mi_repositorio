@@ -1,0 +1,54 @@
+{% extends 'AppBlog/padre.html' %}
+
+{% load static %}
+
+{%block Header%}
+    <header class="masthead" style="background-image: url({%static 'AppBlog/assets/img/inicio.jpg' %})">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Galerías de arte</h1>
+                        <span class="subheading"> "Quienes dibujamos no sólo dibujamos a fin de hacer algo visible para los demás, sino también para acompañar a algo invisible hacia su destino insondable."
+                            <br>
+                            John Berger</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header> 
+{%endblock%}
+
+{%block contenidoQueCambia%}
+
+    <!-- Divider-->
+    <hr class="my-4" />
+    <!-- Post preview-->
+    <div class="post-preview">
+        <a href="{% url 'artistas' %}">
+            <h2 class="post-title">Artistas</h2>
+            <h3 class="post-subtitle">En esta sección encontrarán a todos los artistas que exponen en nuestras galerías.</h3>
+        </a>
+
+    </div>
+    <!-- Divider-->
+    <hr class="my-4" />
+    <!-- Post preview-->
+    <div class="{% url 'galerias' %}">
+        <a href="galerias">
+            <h2 class="post-title">Galerías</h2>
+            <h3 class="post-subtitle">Aquí verán todas las galerías que tenemos para visitar y podrá encontrar la más cercana a su ubicación.</h3>
+        </a>
+        
+    </div>
+    <!-- Divider-->
+    <hr class="my-4" />
+    <!-- Post preview-->
+    <div class="post-preview">
+        <a href="{% url 'clientes' %}">
+            <h2 class="post-title">Clientes</h2>
+            <h3 class="post-subtitle">Aquí cargaremos sus datos al haber adquirido una obra nuestra. </h3>
+        </a>
+    </div>
+
+{%endblock%}
