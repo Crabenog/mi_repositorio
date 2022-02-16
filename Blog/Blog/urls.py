@@ -23,5 +23,4 @@ urlpatterns = [
     path("", include("AppBlog.urls")),
     path("", include("AppRegister.urls")),
     path("", include("AppLogin.urls")),
-    # path('login', login_request, name='login'),
 ]
