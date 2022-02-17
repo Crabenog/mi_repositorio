@@ -37,9 +37,12 @@
                         {% if not request.user.is_authenticated %}
                             <a class="btn btn-primary" href="{% url 'login' %}">INICIAR SESIÓN</a>
                         {% else %}
-                            <p class="text-muted small mb-4 mb-lg-0"> Hola {{user.first_name}} </p>
-                            <img src=" {{avatar_url}} " height="50px"/>
-                            <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+                            <li class="text-muted small mb-32 mb-lg-10"> <br>
+                                Hola, {{user.username}} </li>
+                            <img src=" {{avatar_url}} " height="80px"/>
+                            <a class="btn btn-primary" href="{% url 'logout' %}"> Logout</a>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'avatar_add' %}">Cambiar Avatar</a></li>
+                            {% comment %} <a class="btn btn-primary" href="{% url 'avatar_add' %}">Cambiar Avatar</a> {% endcomment %}
                         {% endif %}
                         
                     </ul>
@@ -56,13 +59,17 @@
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Pager-->
+                    {%block OlderPosts%}
+                    
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'not_pages_yet' %}">Older Posts →</a></div>
                 </div>
             </div>
         </div>  
         </div> 
+        
         <!-- Footer-->
         <footer class="border-top">
+            {%endblock%}
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">

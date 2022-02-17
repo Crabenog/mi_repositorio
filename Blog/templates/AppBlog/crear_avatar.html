@@ -1,27 +1,46 @@
 {% extends 'AppBlog/padre.html' %}
 
-{% block titulo %}
-    Cursos
-{% endblock %}
 
-{% block contenidoQueCambia %}
-
-    {% if form.errors %}
-        <p style="color: red;"> {{form.errors}} </p>
-    {% endif %}
-
-    <form action="" method="POST" enctype="multipart/form-data"> 
-        {% csrf_token %}
-
-        <table>
-            {{ form.as_table }}
-        </table>
-
-
-        <input type="submit" value="Enviar">
-
-    </form>
-    
-    {% endblock %}
 
     
+
+
+
+                    {% load static %}
+                   
+                    {%block Header%} 
+                       <header class="masthead" style="background-image: url({%static 'AppBlog/assets/img/login.jpeg' %})">
+                           <div class="container position-relative px-4 px-lg-5">
+                               <div class="row gx-4 gx-lg-5 justify-content-center">
+                                   <div class="col-md-10 col-lg-8 col-xl-7">
+                                       <div class="site-heading">
+                                           <h1>AVATAR</h1>
+                                           <span class="subheading">Selecciona un avatar</span>
+                                          
+                                               <div class="row gx-4 gx-lg-5 justify-content-center">
+                                                   <div class="col-md-12 col-lg-10 col-xl-9">
+                                                       
+                   
+                                                    {% if form.errors %}
+                                                    <p style="color: red;"> {{form.errors}} </p>
+                                                {% endif %}
+                                            
+                                                <form action="" method="POST" enctype="multipart/form-data"> 
+                                                    {% csrf_token %}
+                                            
+                                                    <table>
+                                                        {{ form.as_table }}
+                                                    </table>
+                                            
+                                            
+                                                    <input type="submit" value="Enviar">
+                                            
+                                                </form>
+
+                                       
+                                       {% endblock %} 
+                                       {%block OlderPosts%}
+                                       {% endblock %}
+                   
+                                            
+                   

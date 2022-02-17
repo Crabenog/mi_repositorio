@@ -20,7 +20,7 @@ def crear_artista(request, camada):
 
     return HttpResponse(f'Artista creado! {artista}')
 
-# @login_required
+@login_required
 def inicio(request):
     if request.user.is_authenticated:
         avatares = Avatar.objects.filter(user=request.user)
@@ -77,13 +77,15 @@ def buscar(request):
     else:
         return HttpResponse('No se envió una galería válida')
     
+
+    
 def clientes_formulario(request):
     if request.method == 'POST':
         formulario = ClientesForm(request.POST)
 
         if formulario.is_valid():
             data = formulario.cleaned_data
-            Cliente.objects.create(nombre=data['nombre'], artistaAlQueLeCompro=data['artistaAlQueLeCompro'], galeriaALaQueLeCompro=data['galeriaALaQueLeCompro'])
+            Cliente.objects.create(nombre=data['nombre'], artistaAlQueLeCompro=data['artistaAlQueLeCompro'], galeriaALaQueLeCompro=data['galeriaALaQueLeCompro'], obra=data['obra'])
             return redirect('clientes')
     else:
         formulario = ClientesForm()
@@ -114,19 +116,21 @@ class ClienteDetailView(DetailView):
 class ClienteCreateView(CreateView):
     model = Cliente
     success_url =  reverse_lazy ('clientes')
-    fields = ['nombre', 'artistaAlQueLeCompro','galeriaEnQueCompro' ]
+    fields = ['nombre', 'artistaAlQueLeCompro','galeriaEnQueCompro', 'obra' ]
     template_name = 'AppBlog/cliente_form.html' 
 
 class ClienteUpdateView(UpdateView):
     model = Cliente
     success_url =  reverse_lazy ('clientes')
-    fields = ['nombre', 'artistaAlQueLeCompro','galeriaEnQueCompro' ]
+    fields = ['nombre', 'artistaAlQueLeCompro','galeriaEnQueCompro', 'obra' ]
     template_name = 'AppBlog/cliente_form.html' 
  
 class ClienteDeleteView(DeleteView):
     model = Cliente
     success_url = reverse_lazy('clientes')
     template_name = 'AppBlog/cliente_delete.html' 
+
+    
     
 
 # def login_request (request):

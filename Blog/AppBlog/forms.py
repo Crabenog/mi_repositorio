@@ -10,6 +10,8 @@ class ClientesForm(Form):
     nombre=CharField(max_length=60)
     artistaAlQueLeCompro = CharField(max_length=40,label="Artista a quien le compró")
     galeriaALaQueLeCompro = CharField(max_length=40,label="Galería a la que le compró la obra")
+    obra = ImageField(required=True)
+    
     
 class GaleriasForm(Form):
     nombre = CharField(max_length=40)

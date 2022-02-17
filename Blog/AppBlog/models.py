@@ -22,10 +22,13 @@ class Galeria(Model):
     def __str__(self):
         return f'La galería {self.nombre} queda en la dirección {self.direccion}.'
     
+    
+    
 class Cliente(Model):
     nombre = CharField(max_length=40, verbose_name='nombre y apellido')
     artistaAlQueLeCompro = CharField(max_length=40, verbose_name='Autor de la obra', blank=True, null=True)
     galeriaEnQueCompro = CharField(max_length=40, verbose_name='Galería en la adquirió la obra', blank=True, null=True)
+    obra = ImageField(upload_to='obras', verbose_name='Obra que adquirió', blank=True, null=True)
     
     def __str__(self):
         return f'{self.nombre} le compró al artista {self.artistaAlQueLeCompro} en la galería {self.galeriaEnQueCompro}.'

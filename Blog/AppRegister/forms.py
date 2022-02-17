@@ -1,4 +1,4 @@
-from django.forms import BooleanField, CharField, EmailField, PasswordInput
+from django.forms import BooleanField, CharField, EmailField, NullBooleanField, PasswordInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -9,7 +9,7 @@ class UserRegisterForm(UserCreationForm):
     email = EmailField()
     password1 = CharField(label='Contraseña', widget=PasswordInput)
     password2 = CharField(label='Repetir Contraseña', widget=PasswordInput)
-    is_staff = BooleanField(label='¿Es admin?')
+    is_staff = NullBooleanField(label='¿Es admin?')
     
     class Meta:
         model = User
