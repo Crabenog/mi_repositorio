@@ -41,7 +41,7 @@
                                 Hola, {{user.username}} </li>
                             <img src=" {{avatar_url}} " height="80px"/>
                             <a class="btn btn-primary" href="{% url 'logout' %}"> Logout</a>
-                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'avatar_add' %}">Cambiar Avatar</a></li>
+                            <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'avatar_add' %}">Editar perfil</a></li>
                             {% comment %} <a class="btn btn-primary" href="{% url 'avatar_add' %}">Cambiar Avatar</a> {% endcomment %}
                         {% endif %}
                         
