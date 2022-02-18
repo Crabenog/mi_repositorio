@@ -85,11 +85,15 @@ def clientes_formulario(request):
 
         if formulario.is_valid():
             data = formulario.cleaned_data
-            Cliente.objects.create(nombre=data['nombre'], artistaAlQueLeCompro=data['artistaAlQueLeCompro'], galeriaALaQueLeCompro=data['galeriaALaQueLeCompro'], obra=data['obra'])
+            Cliente.objects.create(nombre=data['nombre'], artistaAlQueLeCompro=data['artistaAlQueLeCompro'], galeriaALaQueLeCompro=data['galeriaALaQueLeCompro'])            
             return redirect('clientes')
     else:
         formulario = ClientesForm()
     return render(request, 'AppBlog/clientesFormulario.html', {'formulario': formulario})
+
+
+
+
 
 def galerias_formulario(request):
     if request.method == 'POST':
@@ -102,6 +106,35 @@ def galerias_formulario(request):
     else:
         formulario = GaleriasForm()
     return render(request, 'AppBlog/galeriasFormulario.html', {'formulario': formulario})
+
+class GaleriaListView(ListView):
+    model = Galeria
+    template_name = 'AppBlog/galerias.html' 
+    context_object_name = 'galerias'   
+
+class GaleriaDetailView(DetailView):
+    model = Galeria
+    template_name = 'AppBlog/ver_galeria.html' 
+
+class GaleriaCreateView(CreateView):
+    model = Galeria
+    success_url =  reverse_lazy ('galerias')
+    fields = ['nombre', 'direccion','artistasQueExponen']
+    template_name = 'AppBlog/galeria_form.html' 
+
+class GaleriaUpdateView(UpdateView):
+    model = Galeria
+    success_url =  reverse_lazy ('galerias')
+    fields = ['nombre', 'direccion','artistasQueExponen']
+    template_name = 'AppBlog/galeria_form.html' 
+ 
+class GaleriaDeleteView(DeleteView):
+    model = Galeria
+    success_url = reverse_lazy('galerias')
+    template_name = 'AppBlog/galeria_delete.html' 
+    
+
+
 
 
 class ClienteListView(ListView):
@@ -129,6 +162,8 @@ class ClienteDeleteView(DeleteView):
     model = Cliente
     success_url = reverse_lazy('clientes')
     template_name = 'AppBlog/cliente_delete.html' 
+    
+
 
     
     

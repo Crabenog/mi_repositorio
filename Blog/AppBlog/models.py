@@ -32,7 +32,7 @@ class Cliente(Model):
     
     def __str__(self):
         return f'{self.nombre} le compró al artista {self.artistaAlQueLeCompro} en la galería {self.galeriaEnQueCompro}.'
-    
+ 
 class Avatar(Model):
     user = ForeignKey(User, on_delete=CASCADE)
     imagen = ImageField(upload_to='avatares', null=True, blank=True)
