@@ -4,9 +4,9 @@ Nuestra página web se enfoca en registrar artistas, galerías, y clientes poten
 
 El equipo de trabajo se conforma por:
 
-Candelaria SÁNCHEZ
-Bryan CRAUSE
-Daniel SALAS
+#### Candelaria SÁNCHEZ.
+#### Bryan CRAUSE.
+#### Daniel SALAS.
 
 ## Funcionamiento:
 
