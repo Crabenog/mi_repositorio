@@ -45,12 +45,13 @@ def galeria(request):
 def clientes(request):
     return render(request, "AppBlog/clientes.html",{})
 
+@login_required
 def artistas(request):
     artistas= Artista.objects.all()
     return render(request, "AppBlog/artistas.html",{'artistas': artistas})
 
 
-
+@login_required
 def busqueda_artista(request):
     return render(request, 'AppBlog/busquedaArtistas.html')
 
