@@ -114,7 +114,7 @@ class GaleriaListView(ListView):
 
 class GaleriaDetailView(DetailView):
     model = Galeria
-    template_name = 'AppBlog/ver_galeria.html' 
+    template_name = 'AppBlog/galeria_view.html' 
 
 class GaleriaCreateView(CreateView):
     model = Galeria
@@ -144,7 +144,7 @@ class ClienteListView(ListView):
 
 class ClienteDetailView(DetailView):
     model = Cliente
-    template_name = 'AppBlog/ver_cliente.html' 
+    template_name = 'AppBlog/cliente_view.html' 
 
 class ClienteCreateView(CreateView):
     model = Cliente

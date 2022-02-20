@@ -10,23 +10,20 @@
                     <div class="site-heading">
                         <h1>Clientes</h1>
                         <span class="subheading">Ingrese sus datos:</span>
-                        {% comment %} {% block contenidoQueCambia %} {% endcomment %}
    
                         <h3>...</h3>
 
-                        {% for cliente in clientes %}
-                        <a href="{% url 'cliente_view' cliente.id %}">{{ cliente }}
+                        {% block contenidoQueCambia %}
+
+                        <ul>
+                            <li>Nombre y apellido: {{cliente.nombre}}</li>
+                            <li>Artista al que le compró: {{cliente.artistaAlQueLeCompro}}</li>
+                            <li>Galería a la que le compró: {{cliente.galeriaALaQueLeCompro}}</li>
                             {% if cliente.obra %}
-                                <img src="{{cliente.obra.url}}" width="75" height="75">
+                                <img src="{{ cliente.obra.url }}" width="150" height="150">
                             {% endif %}
-                         
-                        </a>
-                        <a href="{% url 'cliente_delete' cliente.id %}">Borrar</a>
-                        <a href="{% url 'cliente_update' cliente.id %}">Editar</a>
-                        <br>
-                    {% endfor %}
-                
-                    <a class="btn btn-primary" href="{% url 'cliente_add' %}">Agregar</a>
+                        </ul>
+                    {% endblock %}
 
                 {% endblock %}
                 
