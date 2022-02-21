@@ -11,6 +11,7 @@ class UserRegisterForm(UserCreationForm):
     password2 = CharField(label='Repetir Contraseña', widget=PasswordInput)
     is_staff = NullBooleanField(label='¿Es admin?')
     
+    
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
