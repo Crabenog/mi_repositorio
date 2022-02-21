@@ -86,7 +86,7 @@ def clientes_formulario(request):
 
         if formulario.is_valid():
             data = formulario.cleaned_data
-            Cliente.objects.create(nombre=data['nombre'], artistaAlQueLeCompro=data['artistaAlQueLeCompro'], galeriaALaQueLeCompro=data['galeriaALaQueLeCompro'])            
+            Cliente.objects.create(nombre=data['nombre'], artistaAlQueLeCompro=data['artistaAlQueLeCompro'], galeriaALaQueLeCompro=data['galeriaALaQueLeCompro'], fecha=data['fecha'])            
             return redirect('clientes')
     else:
         formulario = ClientesForm()

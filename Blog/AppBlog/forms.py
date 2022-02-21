@@ -1,6 +1,8 @@
 from django.forms import Form, CharField, BooleanField, EmailField, PasswordInput, ImageField
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from datetime import datetime
+
 
 class ArtistasForm(Form):
     artista=CharField(max_length=60)
@@ -11,6 +13,7 @@ class ClientesForm(Form):
     artistaAlQueLeCompro = CharField(max_length=40,label="Artista a quien le compró")
     galeriaALaQueLeCompro = CharField(max_length=40,label="Galería a la que le compró la obra")
     obra = ImageField(required=True)
+    fecha = datetime.now().strftime("%d/%m/%Y")
     
     
 class GaleriasForm(Form):

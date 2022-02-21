@@ -2,6 +2,7 @@ from tabnanny import verbose
 from django.db.models import Model, ForeignKey, CASCADE, ImageField
 from django.db.models.fields import CharField, IntegerField
 from django.contrib.auth.models import User
+from datetime import datetime
 
 class Artista(Model):
     nombre = CharField(max_length=40,null=True, blank=True)
@@ -29,9 +30,10 @@ class Cliente(Model):
     artistaAlQueLeCompro = CharField(max_length=40, verbose_name='Autor de la obra', blank=True, null=True)
     galeriaEnQueCompro = CharField(max_length=40, verbose_name='Galería en la adquirió la obra', blank=True, null=True)
     obra = ImageField(upload_to='obras', verbose_name='Obra que adquirió', blank=True, null=True)
+    fecha = datetime.now().strftime("%d/%m/%Y")
     
     def __str__(self):
-        return f'{self.nombre} le compró al artista {self.artistaAlQueLeCompro} en la galería {self.galeriaEnQueCompro}.'
+        return f'{self.nombre} le compró al artista {self.artistaAlQueLeCompro} en la galería {self.galeriaEnQueCompro} el día {self.fecha}.'
  
 class Avatar(Model):
     user = ForeignKey(User, on_delete=CASCADE)
