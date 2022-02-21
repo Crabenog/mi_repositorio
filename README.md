@@ -29,3 +29,9 @@ El equipo de trabajo se conforma por:
 ### 5 - En la parte superior izquierda del NavBar, al hacer click en 'Buscar artistas por galería' e ingresar el nombre de alguna galería, obtendrá todos los artistas que exponen en la galería seleccionada.
 
 ### 6 - Desde la parte superior derecha del NavBar, el usuario podrá editar sus datos personales y avatar entrando en su perfil.
+
+
+# DISCLAIMER:
+
+a) Agregamos en botones separados EDITAR AVATAR / EDITAR PERFIL
+b) El avatar solo se ve en las clases, no en las vistas hechas como métodos.
