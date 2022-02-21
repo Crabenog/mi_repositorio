@@ -33,5 +33,6 @@ El equipo de trabajo se conforma por:
 
 # DISCLAIMER:
 
-a) Agregamos en botones separados EDITAR AVATAR / EDITAR PERFIL
+a) Agregamos en botones separados EDITAR AVATAR / EDITAR PERFIL.
+
 b) El avatar solo se ve en las clases, no en las vistas hechas como métodos.
