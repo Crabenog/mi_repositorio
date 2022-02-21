@@ -4,11 +4,12 @@ from django.forms import CharField, BooleanField, EmailField, NullBooleanField, 
 
 
 class UserEditForm(UserCreationForm):
-    first_name = CharField(label='Nombre')  
-    last_name = CharField(label='Apellido')
-    email = EmailField()
-    password1 = CharField(label='Contraseña', widget=PasswordInput)
-    password2 = CharField(label='Repetir Contraseña', widget=PasswordInput)
+    username = CharField(label='Usuario', required=False)  
+    first_name = CharField(label='Nombre', required=False)  
+    last_name = CharField(label='Apellido', required=False)
+    email = EmailField(required=False)
+    password1 = CharField(label='Contraseña', widget=PasswordInput, required=False)
+    password2 = CharField(label='Repetir Contraseña', widget=PasswordInput, required=False)
     is_staff = NullBooleanField(label='¿Es admin?')
  
     class Meta:
