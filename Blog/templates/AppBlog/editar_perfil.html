@@ -1,7 +1,7 @@
 {% extends 'AppBlog/padre.html' %}
 
 {% load static %}
-
+{% comment %} #desde aqui esta el editar perfil {% endcomment %}
  {%block Header%} 
     <header class="masthead" style="background-image: url({%static 'AppBlog/assets/img/login.jpeg' %})">
         <div class="container position-relative px-4 px-lg-5">
@@ -11,7 +11,7 @@
                         <h1>Edición de perfil</h1>
                         <span class="subheading">Introduce tus datos</span>
                        
-                            <div class="row gx-4 gx-lg-5 justify-content-center">
+                             <div class="row gx-4 gx-lg-5 justify-content-center">
                                 <div class="col-md-12 col-lg-10 col-xl-9">
                                     
 
@@ -21,10 +21,20 @@
                                             {{ form.as_table }}
                                         </table>
                                 
-                                        <input type= "submit" value="Crear usuario">
+                                        <input type= "submit" value="Editar usuario">
                     
-                        </form>
+                        </form> 
+
+                        {% comment %} #hasta aqui llega el editar perfil {% endcomment %}
                     
+
+
+ 
+
+
+
                     {% endblock %} 
                     {%block OlderPosts%}
                     {% endblock %}
+
+
