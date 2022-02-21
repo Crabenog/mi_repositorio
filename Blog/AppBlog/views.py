@@ -14,9 +14,23 @@ from AppBlog.forms import UserEditForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
+class AvatarView():
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
+        return contexto
+
+
 def crear_artista(request, camada):
     artista = Artista(nombre='Van Gogh', galeria=galeria)
     artista.save()
+    
+    class AvatarView():
+        def get_context_data(self, **kwargs):
+            contexto = super().get_context_data(**kwargs)
+            contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
+            return contexto
+   
 
     return HttpResponse(f'Artista creado! {artista}')
 
@@ -108,28 +122,28 @@ def galerias_formulario(request):
         formulario = GaleriasForm()
     return render(request, 'AppBlog/galeriasFormulario.html', {'formulario': formulario})
 
-class GaleriaListView(ListView):
+class GaleriaListView(AvatarView, ListView):
     model = Galeria
     template_name = 'AppBlog/galerias.html' 
     context_object_name = 'galerias'   
 
-class GaleriaDetailView(DetailView):
+class GaleriaDetailView(AvatarView, DetailView):
     model = Galeria
     template_name = 'AppBlog/galeria_view.html' 
 
-class GaleriaCreateView(CreateView):
+class GaleriaCreateView(AvatarView, CreateView):
     model = Galeria
     success_url =  reverse_lazy ('galerias')
     fields = ['nombre', 'direccion','artistasQueExponen']
     template_name = 'AppBlog/galeria_form.html' 
 
-class GaleriaUpdateView(UpdateView):
+class GaleriaUpdateView(AvatarView, UpdateView):
     model = Galeria
     success_url =  reverse_lazy ('galerias')
     fields = ['nombre', 'direccion','artistasQueExponen']
     template_name = 'AppBlog/galeria_form.html' 
  
-class GaleriaDeleteView(DeleteView):
+class GaleriaDeleteView(AvatarView, DeleteView):
     model = Galeria
     success_url = reverse_lazy('galerias')
     template_name = 'AppBlog/galeria_delete.html' 
@@ -138,28 +152,28 @@ class GaleriaDeleteView(DeleteView):
 
 
 
-class ClienteListView(ListView):
+class ClienteListView(AvatarView, ListView):
     model = Cliente
     template_name = 'AppBlog/clientes.html' 
     context_object_name = 'clientes'   
 
-class ClienteDetailView(DetailView):
+class ClienteDetailView(AvatarView, DetailView):
     model = Cliente
     template_name = 'AppBlog/cliente_view.html' 
 
-class ClienteCreateView(CreateView):
+class ClienteCreateView(AvatarView, CreateView):
     model = Cliente
     success_url =  reverse_lazy ('clientes')
     fields = ['nombre', 'artistaAlQueLeCompro','galeriaEnQueCompro', 'obra' ]
     template_name = 'AppBlog/cliente_form.html' 
 
-class ClienteUpdateView(UpdateView):
+class ClienteUpdateView(AvatarView, UpdateView):
     model = Cliente
     success_url =  reverse_lazy ('clientes')
     fields = ['nombre', 'artistaAlQueLeCompro','galeriaEnQueCompro', 'obra' ]
     template_name = 'AppBlog/cliente_form.html' 
  
-class ClienteDeleteView(DeleteView):
+class ClienteDeleteView(AvatarView, DeleteView):
     model = Cliente
     success_url = reverse_lazy('clientes')
     template_name = 'AppBlog/cliente_delete.html' 
@@ -232,3 +246,4 @@ def agregar_avatar(request):
         formulario= AvatarFormulario()
         
     return render(request, 'AppBlog/crear_avatar.html', {'form': formulario})
+
