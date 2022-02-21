@@ -19,4 +19,4 @@ def editar_perfil(request):
     else:
         formulario = UserEditForm ({'email': usuario.email})
         
-    return render(request, 'register.html', {'form': formulario})
+    return render(request, 'AppBlog/editar_perfil.html', {'form': formulario})

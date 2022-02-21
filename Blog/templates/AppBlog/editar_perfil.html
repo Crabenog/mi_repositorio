@@ -1,34 +1,6 @@
 {% extends 'AppBlog/padre.html' %}
 
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-
-    <form action="" method= "POST">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-
-        <input type= "submit" value="Crear usuario">
-
-    </form>
-
-</body>
-</html> {% endcomment %}
-
-
-
-
-
- {% load static %}
+{% load static %}
 
  {%block Header%} 
     <header class="masthead" style="background-image: url({%static 'AppBlog/assets/img/login.jpeg' %})">
@@ -36,7 +8,7 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading">
-                        <h1>Registrate</h1>
+                        <h1>Edición de perfil</h1>
                         <span class="subheading">Introduce tus datos</span>
                        
                             <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -52,13 +24,7 @@
                                         <input type= "submit" value="Crear usuario">
                     
                         </form>
-
-
-                    
-                        {% comment %} <span><a href= "{% url 'register' %}">Nuevo user? Registrate!</a></span> {% endcomment %}
                     
                     {% endblock %} 
                     {%block OlderPosts%}
                     {% endblock %}
-
-                         
