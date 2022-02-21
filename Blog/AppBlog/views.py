@@ -24,13 +24,6 @@ def crear_artista(request, camada):
     artista = Artista(nombre='Van Gogh', galeria=galeria)
     artista.save()
     
-    class AvatarView():
-        def get_context_data(self, **kwargs):
-            contexto = super().get_context_data(**kwargs)
-            contexto['avatar_url'] = Avatar.objects.filter(user=self.request.user).last().imagen.url
-            return contexto
-   
-
     return HttpResponse(f'Artista creado! {artista}')
 
 @login_required
