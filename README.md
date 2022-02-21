@@ -1,5 +1,10 @@
 # Entrega Final
 
+Super user:
+
+dansalart 
+holahola123
+
 Nuestra página web se enfoca en registrar artistas, galerías, y clientes potenciales para mostrar y comercializar obras de arte.
 
 El equipo de trabajo se conforma por:
