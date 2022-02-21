@@ -13,7 +13,7 @@ class ClientesForm(Form):
     artistaAlQueLeCompro = CharField(max_length=40,label="Artista a quien le compró")
     galeriaALaQueLeCompro = CharField(max_length=40,label="Galería a la que le compró la obra")
     obra = ImageField(required=True)
-    fecha = datetime.now().strftime("%d/%m/%Y")
+    fecha = datetime.today().strftime("%d/%m/%Y")
     
     
 class GaleriasForm(Form):

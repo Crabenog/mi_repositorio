@@ -30,7 +30,7 @@ class Cliente(Model):
     artistaAlQueLeCompro = CharField(max_length=40, verbose_name='Autor de la obra', blank=True, null=True)
     galeriaEnQueCompro = CharField(max_length=40, verbose_name='Galería en la adquirió la obra', blank=True, null=True)
     obra = ImageField(upload_to='obras', verbose_name='Obra que adquirió', blank=True, null=True)
-    fecha = datetime.now().strftime("%d/%m/%Y")
+    fecha = datetime.today().strftime("%d/%m/%Y")
     
     def __str__(self):
         return f'{self.nombre} le compró al artista {self.artistaAlQueLeCompro} en la galería {self.galeriaEnQueCompro} el día {self.fecha}.'
