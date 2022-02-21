@@ -13,20 +13,16 @@
    
                         <h3>...</h3>
 
-                        {% block contenidoQueCambia %}
+                        {% comment %} {% block contenidoQueCambia %} {% endcomment %}
 
-                        <ul>
-                            <li>Nombre y apellido: {{cliente.nombre}}</li>
-                            <li>Artista al que le compró: {{cliente.artistaAlQueLeCompro}}</li>
-                            <li>Galería a la que le compró: {{cliente.galeriaALaQueLeCompro}}</li>
-                            {% if cliente.obra %}
-                                <img src="{{ cliente.obra.url }}" width="150" height="150">
-                            {% endif %}
-                        </ul>
-                    {% endblock %}
+                            <ul>
+                                <li>Nombre y apellido: {{cliente.nombre}}</li>
+                                <li>Artista al que le compró: {{cliente.artistaAlQueLeCompro}}</li>
+                                <li>Galería a la que le compró: {{cliente.galeriaALaQueLeCompro}}</li>
+                                {% if cliente.obra %}
+                                    <img src="{{ cliente.obra.url }}" width="150" height="150">
+                                {% endif %}
+                            </ul>
 
-                {% endblock %}
-                
+                        {% endblock %}
 
-                        
-                     
