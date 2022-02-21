@@ -1,6 +1,7 @@
-from AppBlog.forms import UserEditForm
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
+
+from AppProfiles.forms import UserEditForm
 
 @login_required
 def editar_perfil(request):

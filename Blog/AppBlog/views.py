@@ -10,7 +10,6 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponse
-from AppBlog.forms import UserEditForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 

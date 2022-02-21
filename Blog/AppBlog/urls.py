@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import artistas, artistas_formulario, inicio, galeria, buscar, busqueda_artista, about_us, not_pages_yet
+from .views import artistas, artistas_formulario, inicio, buscar, busqueda_artista, about_us, not_pages_yet
 from AppBlog import views 
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
